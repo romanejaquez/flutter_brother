@@ -520,10 +520,10 @@ class _MyAppState extends State<MyApp> {
   Future<PrinterStatus> printImageBluetooth() async {
     var printer = new Printer();
     var printInfo = PrinterInfo();
-    printInfo.printerModel = Model.QL_1110NWB;
+    printInfo.printerModel = Model.PT_P910BT;
     printInfo.printMode = PrintMode.FIT_TO_PAGE;
     printInfo.isAutoCut = true;
-    printInfo.port = Port.NET;
+    printInfo.port = Port.BLUETOOTH;
     printInfo.numberOfCopies = 2;
     //printInfo.macAddress = "58:93:D8:BD:69:95"; // Printer BLuetooth Mac
     //printInfo.port = Port.NET;
@@ -531,18 +531,18 @@ class _MyAppState extends State<MyApp> {
 
     // Ask the printer what label it has on.
     //printInfo.labelNameIndex = (await printer.getLabelInfo()).labelNameIndex; //QL1100.ordinalFromID(QL1100.W103.getId());
-    printInfo.labelNameIndex = QL1100.ordinalFromID(QL1100.W62.getId());
-
-    /*
+    //printInfo.labelNameIndex = QL1100.ordinalFromID(QL1100.W62.getId());
+    printInfo.labelNameIndex = PT.ordinalFromID(PT.W36.getId());   
+    
     List<BluetoothPrinter> netPrinters =
-        await printer.getBluetoothPrinters([Model.QL_1110NWB.getName()]);
+        await printer.getBluetoothPrinters([Model.PT_P910BT.getName()]);
     print("Bt Printers Found: $netPrinters");
     printInfo.macAddress = netPrinters.single.macAddress;
-*/
-    List<NetPrinter> netPrinters =
-    await printer.getNetPrinters([Model.QL_1110NWB.getName()]);
-    print("Net Printers Found: $netPrinters");
-    printInfo.ipAddress = netPrinters.single.ipAddress;
+
+    // List<NetPrinter> netPrinters =
+    // await printer.getNetPrinters([Model.QL_1110NWB.getName()]);
+    // print("Net Printers Found: $netPrinters");
+    // printInfo.ipAddress = netPrinters.single.ipAddress;
 
     /*
     var printer = new Printer();
@@ -665,8 +665,8 @@ class _MyAppState extends State<MyApp> {
                   child: ElevatedButton(
                       onPressed: () {
                         //printBle();
-                        //printImageBluetooth();
-                        printLabelTypeB();
+                        printImageBluetooth();
+                        //printLabelTypeB();
                       },
                       child: Text("Print Bluetooth")),
                 ),
