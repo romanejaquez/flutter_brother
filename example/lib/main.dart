@@ -82,6 +82,12 @@ class FlutterPrintAppState extends State<FlutterPrintApp> with TickerProviderSta
     });
   }
 
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   Future<pi.PrinterStatus> printImageBluetooth() async {
 
     var printer = new pi.Printer();

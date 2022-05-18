@@ -156,7 +156,6 @@ class FlutterPrintAppState extends State<FlutterPrintApp> with TickerProviderSta
 }
 
 class Utils {
-  
   static const Color blueColor = Color(0xFF5B8CCE);
   static const Color darkGreen = Color(0xFF01B5A7);
   static const Color lightGreen = Color(0xFF32D8C7);
